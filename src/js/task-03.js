@@ -28,6 +28,7 @@ const images = [
   },
 ];
 
+/* // ------------------------ 1 variant ---------------------
 const galleryEl = document.querySelector('.gallery');
 // console.log(galleryEl);
 
@@ -52,3 +53,15 @@ const imgGalleryEl = images.reduce((acc, image) => {
 }, galleryEl);
 
 console.log(imgGalleryEl);
+*/
+
+// ---------------------- 2 variant --------------------------
+
+const galleryEl = document.querySelector('.gallery');
+
+const imgEl = images
+  .map(({ url, alt }) => `<li class="gallery__item"><img src=${url}alt=${alt}</></li>`)
+  .join('');
+
+galleryEl.insertAdjacentHTML('beforeend', imgEl);
+console.log(galleryEl);
