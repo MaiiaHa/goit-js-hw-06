@@ -13,6 +13,6 @@ const textContentRef = document.querySelector('span#name-output');
 textInputRef.addEventListener('input', addTextInput);
 
 function addTextInput(event) {
-  console.log('name', event.currentTarget.value);
+  // console.log('name', event.currentTarget.value);
   textContentRef.textContent = event.currentTarget.value;
 }
