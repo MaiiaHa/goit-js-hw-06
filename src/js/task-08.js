@@ -30,18 +30,35 @@
 const form = document.querySelector('.login-form');
 
 form.addEventListener('submit', onFormSubmit);
+form.addEventListener('input', onFormInput);
+
+function onFormInput(eventInp) {
+  // if (eventInp.currentTarget.value) {
+  //   const formData = new FormData(eventInp.currentTarget);
+  //   console.log(formData); // will not see results
+
+  //   formData.forEach((value, name) => {
+  //     console.log(value, name);
+  //   }); // to see results
+  // }
+  alert('you did not add data')=!eventInp.currentTarget.value;
+  console.log('you did not add data');
+}
+function onFormClean (event) {
+  form.classList.remove('.input')
+}
 
 function onFormSubmit(event) {
   event.preventDefault();
 
-  alert(value);
   const formData = new FormData(event.currentTarget);
+  console.log(formData); // will not see results
 
   formData.forEach((value, name) => {
     console.log(value, name);
   }); // to see results
 
-  console.log(formData);
+  // alert(`please write email`);
 
   // ------------ by hand variant
 
