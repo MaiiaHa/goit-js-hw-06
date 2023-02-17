@@ -26,7 +26,7 @@
 */
 const textInputRef = document.querySelector('input#validation-input');
 const textLengthRef = document.querySelector('input[data-length="6"]');
-
+// console.log(textInputRef.classList.value);
 textInputRef.addEventListener('blur', checkEnteredData);
 // textInputRef.addEventListener('input', addTextInput);
 
@@ -37,11 +37,15 @@ function checkEnteredData(event) {
   const targetDataLength = Number(textLengthRef.dataset.length);
   console.log(targetDataLength);
 
-  if (enteredDataLendth === targetDataLength) {
+  if (enteredDataLendth === targetDataLength && textInputRef.classList.contains('')) {
     return textInputRef.classList.add('valid');
+  } else if (enteredDataLendth === targetDataLength && textInputRef.classList.contains('invalid')) {
+    return textInputRef.classList.replace('valid');
+  } else if (enteredDataLendth !== targetDataLength && textInputRef.classList.contains('valid')) {
+      return textInputRef.classList.replace('invalid');
   }
-  return textInputRef.classList.add('invalid');
-
+  return textInputRef.classList.replace('invalid');
+}
   /*
 1. якщо рівні символи 
 додаємо валід
@@ -53,6 +57,12 @@ function checkEnteredData(event) {
 перевірка якщо валід, то інвалід
 перевірка якщо інвалід, то інвалід і залишаємо
 
+
+elem.classList.contains(cls) - повертає true або false, залежно від наявності класу cls в елемента.
+elem.classList.add(cls) - додає клас cls до списку класів елемента.
+elem.classList.remove(cls) - видаляє клас cls зі списку класів елемента.
+elem.classList.toggle(cls) - якщо відсутній клас cls, то додає його, якщо - присутній, навпаки - видаляє.
+elem.classList.replace(oldClass, newClass) - замінює існуючий клас oldClass на вказаний newClass.
 */
 
   // if (enteredDataLendth === targetDataLength && textInputRef.classList.value === '') {
