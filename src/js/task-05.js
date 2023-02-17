@@ -7,3 +7,12 @@ input#name-input (подія input), підставляє його поточн�
 <input type="text" id="name-input" placeholder="Please enter your name" />
 <h1>Hello, <span id="name-output">Anonymous</span>!</h1>
 */
+const textInputRef = document.querySelector('input#name-input');
+const textContentRef = document.querySelector('span#name-output');
+
+textInputRef.addEventListener('input', addTextInput);
+
+function addTextInput(event) {
+  console.log('name', event.currentTarget.value);
+  textContentRef.textContent = event.currentTarget.value;
+}
