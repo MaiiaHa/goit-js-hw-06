@@ -8,3 +8,13 @@ input#font-size-control (подія input) і змінює інлайн-стил
 <br />
 <span id="text">Abracadabra!</span>
 */
+
+const fontSizeRef = document.querySelector('input#font-size-control');
+const textContentRef = document.querySelector('span#text');
+
+fontSizeRef.addEventListener('input', onChangeFontSizeInput);
+
+function onChangeFontSizeInput(event) {
+  // console.log('size', event.currentTarget.value);
+  textContentRef.style.fontSize = `${event.currentTarget.value}px`;
+}
