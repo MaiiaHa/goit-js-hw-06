@@ -31,13 +31,13 @@ Elements: 5 */
 // console.log('Elements:', categoryEl[2].nextElementSibling.children.length); // Elements: 5
 
 // ------------------------------- 2 variant ---------
+// const newEl = element.lastElementChild; (do not good choise because we do not know how much elements can be)
 
 const categoriesEl = document.querySelectorAll('.item');
 console.log('Number of categories: ', categoriesEl.length); // Number of categories: 3
 
 categoriesEl.forEach(element => {
-  console.log('Category:', element.firstElementChild.textContent);
+  console.log('Category:', element.querySelector('h2').textContent);
 
-  const newEl = element.lastElementChild;
-  console.log('Elements:', newEl.children.length);
+  console.log('Elements:', element.querySelectorAll('li').length);
 });
