@@ -13,6 +13,8 @@ const textContentRef = document.querySelector('span#name-output');
 textInputRef.addEventListener('input', addTextInput);
 
 function addTextInput(event) {
-  // console.log('name', event.currentTarget.value);
+  if (event.currentTarget.value === '') {
+    return (textContentRef.textContent = 'Anonymous');
+  }
   textContentRef.textContent = event.currentTarget.value;
 }
