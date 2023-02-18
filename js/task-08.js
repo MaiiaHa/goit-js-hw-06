@@ -27,50 +27,42 @@
 
 */
 
+// ------------ Form Data "by hand" variant
+
+//in function onFormSubmit:
+
+// const elementsOfForm = event.currentTarget.elements;
+// console.dir(elementsOfForm);
+
+// const mail = elementsOfForm.email.value;
+// const password = elementsOfForm.password.value;
+
+// const formData = {
+//   mail,
+//   password,
+// };
+// console.log(formData);
+
 const form = document.querySelector('.login-form');
 
 form.addEventListener('submit', onFormSubmit);
-form.addEventListener('input', onFormInput);
-
-function onFormInput(eventInp) {
-  // if (eventInp.currentTarget.value) {
-  //   const formData = new FormData(eventInp.currentTarget);
-  //   console.log(formData); // will not see results
-
-  //   formData.forEach((value, name) => {
-  //     console.log(value, name);
-  //   }); // to see results
-  // }
-  alert('you did not add data')=!eventInp.currentTarget.value;
-  console.log('you did not add data');
-}
-function onFormClean (event) {
-  form.classList.remove('.input')
-}
 
 function onFormSubmit(event) {
-  event.preventDefault();
+  event.preventDefault(); // for do not reupload the site
 
   const formData = new FormData(event.currentTarget);
-  console.log(formData); // will not see results
 
-  formData.forEach((value, name) => {
-    console.log(value, name);
-  }); // to see results
+  if (formData.get('email') === '' || formData.get('password') === '') {
+    alert('Please enter all data');
+  }
+  // console.log(formData); // will not see results
+  console.log(formData.getAll('email'));
+  console.log(formData.getAll('password'));
 
-  // alert(`please write email`);
+  // // check formData other variant
+  // formData.forEach((value, name) => {
+  //   console.log(value, name);
+  // }); // to see results
 
-  // ------------ by hand variant
-
-  // const elementsOfForm = event.currentTarget.elements;
-  // console.dir(elementsOfForm);
-
-  // const mail = elementsOfForm.email.value;
-  // const password = elementsOfForm.password.value;
-
-  // const formData = {
-  //   mail,
-  //   password,
-  // };
-  // console.log(formData);
+  form.reset();
 }

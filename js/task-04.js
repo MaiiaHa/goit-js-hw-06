@@ -20,18 +20,12 @@ const decrementEl = document.querySelector('button[data-action="decrement"]');
 const incrementEl = document.querySelector('button[data-action="increment"]');
 
 decrementEl.addEventListener('click', onDecrementClick);
+incrementEl.addEventListener('click', onIncrementClick);
 
 function onDecrementClick() {
   counterValue.textContent = Number(counterValue.textContent) - 1;
-  console.log('Button was clicked', counterValue.textContent);
 }
-
-incrementEl.addEventListener('click', onIncrementClick);
 
 function onIncrementClick() {
   counterValue.textContent = Number(counterValue.textContent) + 1;
-
-  console.log('Button was clicked', counterValue.textContent);
 }
-
-console.log(counterValue.textContent);

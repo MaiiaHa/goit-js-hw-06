@@ -22,7 +22,7 @@ const ingredients = [
 
 const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
 
-// ------------------------- 1 variant
+// ------------------------- 4 variant --------------------------
 
 // for (const ingredient of ingredients) {
 //   const ingredientsEl = document.createElement('li');
@@ -35,7 +35,7 @@ const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Con
 //   // console.log(listOfIngredientsEl);
 // }
 
-// ------------------------- 2 variant
+// ------------------------- 2 variant --------------------------
 
 // const listOfIngredientsEl = document.querySelector('#ingredients');
 // // console.log(listOfIngredientsEl);
@@ -56,15 +56,30 @@ const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Con
 
 // -------------------------- 3 variant ------------------------
 
-const listOfIngredientsEl = document.querySelector('#ingredients');
+// const listOfIngredientsEl = document.querySelector('#ingredients');
 
-const ingredientEl = ingredients.reduce((acc, ingredient) => {
-  const liEl = document.createElement('li');
+// const ingredientEl = ingredients.reduce((acc, ingredient) => {
+//   const liEl = document.createElement('li');
 
+//   liEl.classList.add('item');
+//   liEl.textContent = ingredient;
+//   acc.append(liEl);
+//   return acc;
+// }, listOfIngredientsEl);
+
+// //console.log(listOfIngredientsEl);
+
+// -------------------------- 4 variant ------------------------
+
+const listOfIngredientsEl = document.querySelector('#ingredients'); //<ul id="ingredients"></ul>
+
+const ingredientEl = ingredients.reduce((massive, ingredient) => {
+  const liEl = document.createElement('li'); // li
   liEl.classList.add('item');
   liEl.textContent = ingredient;
-  acc.append(liEl);
-  return acc;
-}, listOfIngredientsEl);
 
-//console.log(listOfIngredientsEl);
+  massive.push(liEl);
+  return massive;
+}, []);
+
+listOfIngredientsEl.append(...ingredientEl);

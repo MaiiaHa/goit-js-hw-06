@@ -31,7 +31,7 @@ Elements: 5 */
 // console.log('Elements:', categoryEl[2].nextElementSibling.children.length); // Elements: 5
 
 // ------------------------------- 2 variant ---------
-// const newEl = element.lastElementChild; (do not good choise because we do not know how much elements can be)
+// cusing element.lastElementChild - do not good choise because we do not know how much elements can be)
 
 const categoriesEl = document.querySelectorAll('.item');
 console.log('Number of categories: ', categoriesEl.length); // Number of categories: 3
