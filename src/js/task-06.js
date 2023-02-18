@@ -29,6 +29,7 @@ const textLengthRef = document.querySelector('input[data-length="6"]');
 // console.log(textInputRef.classList.value);
 textInputRef.addEventListener('blur', checkEnteredData);
 // textInputRef.addEventListener('input', addTextInput);
+console.log(textInputRef.classList.value);
 
 function checkEnteredData(event) {
   console.log('блюр собитие');
@@ -37,15 +38,20 @@ function checkEnteredData(event) {
   const targetDataLength = Number(textLengthRef.dataset.length);
   console.log(targetDataLength);
 
-  if (enteredDataLendth === targetDataLength && textInputRef.classList.contains('')) {
+  // textContentRef.textContent = event.currentTarget.value;
+
+  if (enteredDataLendth === targetDataLength && textInputRef.classList.value === '') {
+    console.log(textInputRef.classList.contains(''));
     return textInputRef.classList.add('valid');
   } else if (enteredDataLendth === targetDataLength && textInputRef.classList.contains('invalid')) {
-    return textInputRef.classList.replace('valid');
+    return textInputRef.classList.replace('invalid', 'valid');
   } else if (enteredDataLendth !== targetDataLength && textInputRef.classList.contains('valid')) {
-      return textInputRef.classList.replace('invalid');
+    return textInputRef.classList.replace('valid', 'invalid');
+  } else if (textInputRef.classList.value === '') {
+    return textInputRef.classList.remove();
   }
-  return textInputRef.classList.replace('invalid');
-}
+
+  return textInputRef.classList.add('invalid');
   /*
 1. якщо рівні символи 
 додаємо валід
@@ -57,6 +63,14 @@ function checkEnteredData(event) {
 перевірка якщо валід, то інвалід
 перевірка якщо інвалід, то інвалід і залишаємо
 
+  if (enteredDataLendth === targetDataLength && textInputRef.classList.contains('')) {
+    return textInputRef.classList.add('valid');
+  } else if (enteredDataLendth === targetDataLength && textInputRef.classList.contains('invalid')) {
+    return textInputRef.classList.replace('valid');
+  } else if (enteredDataLendth !== targetDataLength && textInputRef.classList.contains('valid')) {
+    return textInputRef.classList.replace('invalid');
+  }
+  return textInputRef.classList.replace('invalid');
 
 elem.classList.contains(cls) - повертає true або false, залежно від наявності класу cls в елемента.
 elem.classList.add(cls) - додає клас cls до списку класів елемента.
