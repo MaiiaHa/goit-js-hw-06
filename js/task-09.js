@@ -10,7 +10,7 @@
 
 Для генерування випадкового кольору використовуй функцію 
 getRandomHexColor.
-
+викликати раз ф-цію
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
@@ -19,5 +19,16 @@ function getRandomHexColor() {
 */
 
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+const bodyColorRef = document.querySelector('button.change-color');
+const textContentRef = document.querySelector('span.color');
+
+bodyColorRef.addEventListener('click', onChangeColorBody);
+
+function onChangeColorBody() {
+  document.body.style.backgroundColor = getRandomHexColor();
+  textContentRef.textContent = getRandomHexColor();
 }
