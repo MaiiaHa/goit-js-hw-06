@@ -54,15 +54,11 @@ function onFormSubmit(event) {
 
   if (formData.get('email') === '' || formData.get('password') === '') {
     alert('Please enter all data');
+  } else {
+    console.log(formData); // will not see results
+    form.reset();
   }
-  // console.log(formData); // will not see results
-  console.log(formData.getAll('email'));
-  console.log(formData.getAll('password'));
 
-  // // check formData other variant
-  // formData.forEach((value, name) => {
-  //   console.log(value, name);
-  // }); // to see results
-
-  form.reset();
+  console.log(formData.get('email'));
+  console.log(formData.get('password'));
 }
