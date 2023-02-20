@@ -55,10 +55,8 @@ function onFormSubmit(event) {
   if (formData.get('email') === '' || formData.get('password') === '') {
     alert('Please enter all data');
   } else {
-    console.log(formData); // will not see results
+    // console.log(formData); // will not see results
+    console.log({ email: formData.get('email'), password: formData.get('password') });
     form.reset();
   }
-
-  console.log(formData.get('email'));
-  console.log(formData.get('password'));
 }
